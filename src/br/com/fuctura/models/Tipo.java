@@ -1,18 +1,18 @@
 package br.com.fuctura.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
+@Entity
 public class Tipo {
 	
 	
 	@Id
-	private String codigo;
+	private Integer codigo;
 	
 	@Column(nullable = false)
 	private String nome;
 	
-	@OneToOne
-	private Lancamento lancamento;
+
 }

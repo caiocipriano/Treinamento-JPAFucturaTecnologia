@@ -1,13 +1,19 @@
 package br.com.fuctura.models;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Lancamento {
 	
 	@Id
 	@Column(nullable = false)
-	private String codigo;
+	private Integer codigo;
 	
 	@Column(nullable = false)
 	private Double valor;
@@ -15,4 +21,11 @@ public class Lancamento {
 	@Column(nullable = false)
 	private String descricao;
 
+	@OneToOne
+	private Tipo tipo;
+	
+	@OneToMany
+	private List<Tag> tag;
+	
+	
 }
