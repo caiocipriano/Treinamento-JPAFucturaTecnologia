@@ -72,7 +72,6 @@ public class Aplication {
 			Usuario login = usuRepo.pesquisarPorEmail(email);
 			
 			
-			
 			System.out.println("Descrição:");
 			String descricao = scannerLancamento.nextLine();
 			
@@ -82,7 +81,7 @@ public class Aplication {
 			System.out.println("Tipo:");
 			System.out.println("1-Despesa");
 			System.out.println("2-Receita");
-			String tipo = scannerLancamento.nextLine();			
+			Integer tipo = scannerLancamento.nextInt();			
 	
 			Lancamento novoLancamento = new Lancamento();
 			
