@@ -64,7 +64,14 @@ public class Aplication {
 				break;
 			}
 		}else if(escolha ==2) {
-			Scanner scannerLancamento = new Scanner(System.in);
+		Scanner scannerLancamento = new Scanner(System.in);
+
+			System.out.println("Digite seu Email:");
+			String email= scannerLancamento.nextLine();
+			
+			Usuario login = usuRepo.pesquisarPorEmail(email);
+			
+			
 			
 			System.out.println("Descrição:");
 			String descricao = scannerLancamento.nextLine();
@@ -72,6 +79,10 @@ public class Aplication {
 			System.out.println("Valor:");
 			Double valor = scannerLancamento.nextDouble();
 			
+			System.out.println("Tipo:");
+			System.out.println("1-Despesa");
+			System.out.println("2-Receita");
+			String tipo = scannerLancamento.nextLine();			
 	
 			Lancamento novoLancamento = new Lancamento();
 			
