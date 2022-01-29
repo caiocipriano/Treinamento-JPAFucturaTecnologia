@@ -22,7 +22,7 @@ public class UsuarioRepository {
 		em.close();
 	}
 	
-	public List<Usuario> pesquisarPorNome(String email, String senha){
+	public List<Usuario> pesquisarPorEmailESenha(String email, String senha){
 		EntityManager em = JPAUtil.getEntityManager();
 		Query consulta = em.createQuery("SELECT u FROM Usuario u WHERE u.email LIKE :email AND u.senha.valor LIKE :senha");
 		consulta.setParameter("email", email);
@@ -30,6 +30,12 @@ public class UsuarioRepository {
 		List<Usuario> resultado = consulta.getResultList();
 		return resultado;
 		
+	}
+	
+	public Usuario pesquisarPorEmail(String email) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Usuario usu = em.find(Usuario.class, email);
+		return usu;
 	}
 	
 }

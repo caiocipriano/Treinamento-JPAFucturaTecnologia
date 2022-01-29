@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.com.fuctura.models.Lancamento;
 import br.com.fuctura.models.Senha;
+import br.com.fuctura.models.Tipo;
 import br.com.fuctura.models.Usuario;
 import br.com.fuctura.repository.SenhaRepository;
 import br.com.fuctura.repository.UsuarioRepository;
@@ -81,12 +82,16 @@ public class Aplication {
 			System.out.println("Tipo:");
 			System.out.println("1-Despesa");
 			System.out.println("2-Receita");
-			Integer tipo = scannerLancamento.nextInt();			
+			Integer tipo = scannerLancamento.nextInt();		
+			
+			Tipo tipoEncontrado = tipoRepository.pesquisarporChavePrimaria(tipo);
 	
 			Lancamento novoLancamento = new Lancamento();
-			
 			novoLancamento.setDescricao(descricao);
 			novoLancamento.setValor(valor);
+		
+			novoLancamento.setTipo(tipoEncontrado);
+			novoLancamento.setUsuario(login);
 			
 		}
 	}

@@ -20,4 +20,11 @@ public class TipoRepository {
 		em.close();
 	}
 	
+	public Tipo pesquisarPorChavePrimaria(Integer tipo) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Tipo resultado = em.find(Tipo.class, tipo);
+		return resultado;
+	}
+
+	
 }
